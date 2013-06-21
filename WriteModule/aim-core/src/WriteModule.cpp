@@ -1,7 +1,4 @@
 /**
- * @file WriteModuleExt.cpp
- * @brief WriteModule extension
- *
  * This file is created at Almende B.V. It is open-source software and part of the Common 
  * Hybrid Agent Platform (CHAP). A toolbox with a lot of open-source tools, ranging from 
  * thread pools and TCP/IP components to control architectures and learning algorithms. 
@@ -12,30 +9,32 @@
  * bio-industry, for animal experimentation, or anything that violates the Universal
  * Declaration of Human Rights.
  *
- * Copyright © 2012 Anne van Rossum <anne@almende.com>
- *
- * @author  ...
- * @date    ...
- * @company Almende B.V.
- * @case    Artificial Intelligence Framework
+ * @author Anne C. van Rossum
+ * @copyright Distributed Organisms B.V.
+ * @date Mar. 27, 2013
+ * @license LGPLv3
  */
 
-#include <WriteModule.h>
+#include "WriteModule.h"
 
-namespace rur {
+using namespace rur;
 
-class WriteModuleExt: public WriteModule {
-public:
-	WriteModuleExt();
+WriteModule::WriteModule():
+  cliParam(0)
+{
+  const char* const channel[1] = {"writeOutput"};
+  cliParam = new Param();
+}
 
-	virtual ~WriteModuleExt();
+WriteModule::~WriteModule() {
+  delete cliParam;
+}
 
-	// The tick function will be called from the WriteModuleMain file
-	void Tick();
+void WriteModule::Init(std::string & name) {
+  cliParam->module_id = name;
+}
 
-	// As soon as Stop() returns "true", the WriteModuleMain will stop the module
-	bool Stop();
-};
-
+bool WriteModule::writeOutput(const int output) {
+  return true;
 }
 
