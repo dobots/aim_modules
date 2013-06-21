@@ -18,23 +18,36 @@
 #include "WriteModule.h"
 
 using namespace rur;
+using namespace yarp::os;
 
 WriteModule::WriteModule():
   cliParam(0)
 {
   const char* const channel[1] = {"writeOutput"};
   cliParam = new Param();
+  portOutput = new BufferedPort<Bottle>();
 }
 
 WriteModule::~WriteModule() {
   delete cliParam;
+  delete portOutput;
 }
 
 void WriteModule::Init(std::string & name) {
   cliParam->module_id = name;
+  std::stringstream yarpPortName;
+  yarpPortName.str(""); yarpPortName.clear();
+  yarpPortName << "/writemodule" << name << "/output";
+  portOutput->open(yarpPortName.str().c_str());
+  
 }
 
 bool WriteModule::writeOutput(const int output) {
+  Bottle &outputPrepare = portOutput->prepare();
+  outputPrepare.clear();
+  outputPrepare.addInt(output);
+  bool forceStrict = true; // wait till previous sends are complete
+  portOutput->write(forceStrict);
   return true;
 }
 

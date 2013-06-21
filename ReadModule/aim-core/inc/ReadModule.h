@@ -18,6 +18,10 @@
 #include <vector>
 #include <string>
 #include <vector>
+#include <sstream>
+#include <yarp/os/BufferedPort.h>
+#include <yarp/os/Network.h>
+#include <yarp/os/Bottle.h>
 
 namespace rur {
 
@@ -30,7 +34,9 @@ class ReadModule {
 private:
   Param *cliParam;
   
-  int dummyInput;
+  yarp::os::Network yarp;
+  int portInputValue;
+  yarp::os::BufferedPort<yarp::os::Bottle> *portInput;
 protected:
   static const int channel_count = 1;
   const char* channel[1];

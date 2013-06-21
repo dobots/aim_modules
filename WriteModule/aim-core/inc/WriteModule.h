@@ -22,6 +22,10 @@
 #include <vector>
 #include <string>
 #include <vector>
+#include <sstream>
+#include <yarp/os/BufferedPort.h>
+#include <yarp/os/Network.h>
+#include <yarp/os/Bottle.h>
 
 namespace rur {
 
@@ -33,6 +37,8 @@ class WriteModule {
 private:
   Param *cliParam;
   
+  yarp::os::Network yarp;
+  yarp::os::BufferedPort<yarp::os::Bottle> *portOutput;
 protected:
   static const int channel_count = 1;
   const char* channel[1];
