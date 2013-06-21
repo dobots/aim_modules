@@ -2,12 +2,16 @@
 
 # AIM Modules
 
-Repository with all modules that are of interest and are meant to connect to databases, etc. The modules in this repository are able to run with YARP middleware, and some of them are okay with other types of middleware too.
+Repository with a few example modules for the AIM framework. The modules in this repository are able to run with multiple middlewares, from YARP, ROS, to NodeJS.
 
-For now we focus first on the "sources" and "sinks" for a type of dataflow architecture that we are building. Later on we will make sure that there will be more "algorithmic oriented" building blocks in here.
+You can find specialised repositories at:
+
+- https://github.com/mrquincle/aim_modules with computer vision and machine learning modules
+- https://github.com/vliedel/aim_modules with robotic navigation and coverage modules
+
 
 ## Copyrights
-The copyrights (2012) belong to:
+The copyrights (2013) belong to:
 
 - Author: Anne van Rossum
 - Almende B.V., http://www.almende.com and DO bots B.V., http://www.dobots.nl
