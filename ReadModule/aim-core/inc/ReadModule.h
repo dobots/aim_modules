@@ -26,17 +26,14 @@ struct Param {
   int parameter;
 };
 
-typedef std::vector<int> long_seq;
-
 class ReadModule {
 private:
   Param *cliParam;
   
-  long_seq dummyAudio;
-  int dummyInfrared;
+  int dummyInput;
 protected:
-  static const int channel_count = 3;
-  const char* channel[3];
+  static const int channel_count = 1;
+  const char* channel[1];
 public:
   ReadModule();
   
@@ -55,13 +52,8 @@ public:
   bool Stop() { return false; }
   
   // Read from this function and assume it means something
-  // Remark: caller is responsible for evoking vector->clear()
-  long_seq *readAudio(bool blocking=false);
-  // Read from this function and assume it means something
   // Remark: check if result is not NULL
-  int *readInfrared(bool blocking=false);
-  // Write to this function and assume it ends up at some receiving module
-  bool writeLeftWheel(const int output);
+  int *readInput(bool blocking=false);
 };
 } // End of namespace
 

@@ -18,10 +18,9 @@ using namespace rur;
 ReadModule::ReadModule():
   cliParam(0)
 {
-  const char* const channel[3] = {"readAudio", "readInfrared", "writeLeftWheel"};
+  const char* const channel[1] = {"readInput"};
   cliParam = new Param();
-  dummyAudio = long_seq(0);
-  dummyInfrared = int(0);
+  dummyInput = int(0);
 }
 
 ReadModule::~ReadModule() {
@@ -32,15 +31,7 @@ void ReadModule::Init(std::string & name) {
   cliParam->module_id = name;
 }
 
-long_seq* ReadModule::readAudio(bool blocking) {
-  return &dummyAudio;
-}
-
-int* ReadModule::readInfrared(bool blocking) {
-  return &dummyInfrared;
-}
-
-bool ReadModule::writeLeftWheel(const int output) {
-  return true;
+int* ReadModule::readInput(bool blocking) {
+  return &dummyInput;
 }
 

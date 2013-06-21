@@ -45,7 +45,7 @@ ReadModuleExt::~ReadModuleExt() {
 /**
  * This example is from the web, but doesn't seem to work.
  */
-bool ReadModuleExt::Tick() {
+void ReadModuleExt::Tick() {
 	std::cout << '[' << getpid() << "] Tick " << lifetime << endl;
 	ReadModule::Tick();
 
@@ -53,7 +53,6 @@ bool ReadModuleExt::Tick() {
 	if (value != NULL) std::cout << "Got value " << *value << std::endl;
 
 	sleep(1);
-	return true;
 }
 
 bool ReadModuleExt::Stop() {
