@@ -9,15 +9,15 @@
  * bio-industry, for animal experimentation, or anything that violates the Universal
  * Declaration of Human Rights.
  *
- * @author Anne C. van Rossum
- * @copyright Distributed Organisms B.V.
- * @date Mar. 27, 2013
- * @license LGPLv3
+ * @author               Homer J. Simpson
+ * @copyright            Springfield Power Company
+ * @date                 okt 22, 2013
+ * @license              State
  */
 
 #include "WriteModule.h"
 
-using namespace rur;
+namespace rur {
 using namespace yarp::os;
 
 WriteModule::WriteModule():
@@ -35,6 +35,7 @@ WriteModule::~WriteModule() {
 
 void WriteModule::Init(std::string & name) {
   cliParam->module_id = name;
+  
   std::stringstream yarpPortName;
   yarpPortName.str(""); yarpPortName.clear();
   yarpPortName << "/writemodule" << name << "/output";
@@ -51,3 +52,4 @@ bool WriteModule::writeOutput(const int output) {
   return true;
 }
 
+} // namespace

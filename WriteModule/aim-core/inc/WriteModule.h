@@ -9,10 +9,10 @@
  * bio-industry, for animal experimentation, or anything that violates the Universal
  * Declaration of Human Rights.
  *
- * @author Anne C. van Rossum
- * @copyright Distributed Organisms B.V.
- * @date Mar. 27, 2013
- * @license LGPLv3
+ * @author               Homer J. Simpson
+ * @copyright            Springfield Power Company
+ * @date                 okt 22, 2013
+ * @license              State
  */
 
 #ifndef WRITEMODULE_H_
@@ -42,10 +42,15 @@ private:
 protected:
   static const int channel_count = 1;
   const char* channel[1];
+  // Write to this function and assume it ends up at some receiving module
+  bool writeOutput(const int output);
+  
 public:
+  // Default constructor
   WriteModule();
   
-  ~WriteModule();
+  // Default destructor
+  virtual ~WriteModule();
   
   // Extend this with your own code, first call WriteModule::Init(name);
   void Init(std::string& name);
@@ -54,13 +59,11 @@ public:
   inline Param *GetParam() { return cliParam; }
   
   // Overwrite this function with your own code
-  virtual void Tick() {}
+  virtual void Tick() = 0;
   
   // Overwrite this function with your own code
   bool Stop() { return false; }
   
-  // Write to this function and assume it ends up at some receiving module
-  bool writeOutput(const int output);
 };
 } // End of namespace
 

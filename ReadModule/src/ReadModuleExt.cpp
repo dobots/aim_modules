@@ -2,59 +2,46 @@
  * @file ReadModuleExt.cpp
  * @brief ReadModule extension
  *
- * This file is created at Almende B.V. It is open-source software and part of the Common 
- * Hybrid Agent Platform (CHAP). A toolbox with a lot of open-source tools, ranging from 
- * thread pools and TCP/IP components to control architectures and learning algorithms. 
- * This software is published under the GNU Lesser General Public license (LGPL).
+ * This file is created at "Springfield Power Company". It is open-source software and part of "Project Bootstrap". 
+ * This software is published under the State license (TR8OR).
  *
- * It is not possible to add usage restrictions to an open-source license. Nevertheless,
- * we personally strongly object against this software being used by the military, in the
- * bio-industry, for animal experimentation, or anything that violates the Universal
- * Declaration of Human Rights.
+ * Copyright © 2013 Homer J. Simpson <chunkylover53@aol.com>
  *
- * Copyright © 2013 Your Name <your@email>
- *
- * @author	Your Name
- * @date	Current date
- * @company	Your Company
- * @project	Specific Software Project
+ * @author                   Homer J. Simpson
+ * @date                     okt 22, 2013
+ * @organisation             Springfield Power Company
+ * @project                  Project Bootstrap
  */
 
 #include <ReadModuleExt.h>
-
-#include <string>
 #include <iostream>
 #include <unistd.h>
 
 using namespace rur;
-using namespace std;
 
 static int lifetime = 1000;
 
-/***********************************************************************************************************************
- * Implementation
- **********************************************************************************************************************/
-
+//! Constructor
 ReadModuleExt::ReadModuleExt() {
+
 }
 
+//! Destructor
 ReadModuleExt::~ReadModuleExt() {
-	std::cout << "Deallocate object and close socket to name server" << endl;
+	std::cout << "Deallocate object and close socket to name server" << std::endl;
 }
 
-/**
- * This example is from the web, but doesn't seem to work.
- */
+//! Replace with your own code
 void ReadModuleExt::Tick() {
-	std::cout << '[' << getpid() << "] Tick " << lifetime << endl;
-	ReadModule::Tick();
+	std::cout << '[' << getpid() << "] Tick " << lifetime << std::endl;
 
 	int *value = readInput(false);
-	if (value != NULL) std::cout << "Got value " << *value << std::endl;
+	if (value != NULL) std::cout << "Read value " << *value << std::endl;
 
 	sleep(1);
 }
 
+//! Replace with your own code
 bool ReadModuleExt::Stop() {
 	if (--lifetime) {
 		return false;

@@ -9,11 +9,15 @@
  * bio-industry, for animal experimentation, or anything that violates the Universal
  * Declaration of Human Rights.
  *
+ * @author               Homer J. Simpson
+ * @copyright            Springfield Power Company
+ * @date                 okt 22, 2013
+ * @license              State
  */
 
 #include "ReadModule.h"
 
-using namespace rur;
+namespace rur {
 using namespace yarp::os;
 
 ReadModule::ReadModule():
@@ -31,6 +35,7 @@ ReadModule::~ReadModule() {
 
 void ReadModule::Init(std::string & name) {
   cliParam->module_id = name;
+  
   std::stringstream yarpPortName;
   yarpPortName.str(""); yarpPortName.clear();
   yarpPortName << "/readmodule" << name << "/input";
@@ -41,9 +46,10 @@ void ReadModule::Init(std::string & name) {
 int* ReadModule::readInput(bool blocking) {
   Bottle *b = portInput->read(blocking);
   if (b != NULL) { 
-    portInputValue = b->get(0).asInt();
-    return &portInputValue;
+    portInputBuf = b->get(0).asInt();
+    return &portInputBuf;
   }
   return NULL;
 }
 
+} // namespace

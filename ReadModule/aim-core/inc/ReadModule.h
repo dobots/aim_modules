@@ -9,6 +9,10 @@
  * bio-industry, for animal experimentation, or anything that violates the Universal
  * Declaration of Human Rights.
  *
+ * @author               Homer J. Simpson
+ * @copyright            Springfield Power Company
+ * @date                 okt 22, 2013
+ * @license              State
  */
 
 #ifndef READMODULE_H_
@@ -27,7 +31,6 @@ namespace rur {
 
 struct Param {
   std::string module_id;
-  int parameter;
 };
 
 class ReadModule {
@@ -35,15 +38,21 @@ private:
   Param *cliParam;
   
   yarp::os::Network yarp;
-  int portInputValue;
+  int portInputBuf;
   yarp::os::BufferedPort<yarp::os::Bottle> *portInput;
 protected:
   static const int channel_count = 1;
   const char* channel[1];
+  // Read from this function and assume it means something
+  // Remark: check if result is not NULL
+  int *readInput(bool blocking=false);
+  
 public:
+  // Default constructor
   ReadModule();
   
-  ~ReadModule();
+  // Default destructor
+  virtual ~ReadModule();
   
   // Extend this with your own code, first call ReadModule::Init(name);
   void Init(std::string& name);
@@ -52,14 +61,11 @@ public:
   inline Param *GetParam() { return cliParam; }
   
   // Overwrite this function with your own code
-  virtual void Tick() {}
+  virtual void Tick() = 0;
   
   // Overwrite this function with your own code
   bool Stop() { return false; }
   
-  // Read from this function and assume it means something
-  // Remark: check if result is not NULL
-  int *readInput(bool blocking=false);
 };
 } // End of namespace
 

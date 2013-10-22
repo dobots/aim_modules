@@ -1,24 +1,18 @@
 /**
  * @file WriteModuleMain.cpp
- * @brief ...
+ * @brief Entry function for WriteModule
  *
- * This file is created at Almende B.V. It is open-source software and part of the Common 
- * Hybrid Agent Platform (CHAP). A toolbox with a lot of open-source tools, ranging from 
- * thread pools and TCP/IP components to control architectures and learning algorithms. 
- * This software is published under the GNU Lesser General Public license (LGPL).
+ * This file is created at "Springfield Power Company". It is open-source software and part of "Project Bootstrap". 
+ * This software is published under the State license (TR8OR).
  *
- * It is not possible to add usage restrictions to an open-source license. Nevertheless,
- * we personally strongly object against this software being used by the military, in the
- * bio-industry, for animal experimentation, or anything that violates the Universal
- * Declaration of Human Rights.
+ * Copyright © 2013 Homer J. Simpson <chunkylover53@aol.com>
  *
- * Copyright © 2012 Your Name <your@email.address>
- *
- * @author  ...
- * @date    ...
- * @company Almende B.V. (or your university, institute or company)
- * @case    Artificial Intelligence Module
+ * @author                   Homer J. Simpson
+ * @date                     okt 22, 2013
+ * @organisation             Springfield Power Company
+ * @project                  Project Bootstrap
  */
+ 
 #include <WriteModuleExt.h>
 
 #include <stdlib.h>

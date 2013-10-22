@@ -1,34 +1,32 @@
 /**
  * IDL description of the WriteModule
  *
- * This file is automatically parsed by the rurbuilder backends for the omniidl 
- * compiler. The names of the functions will become port identifiers. The names 
- * of the function variables are not used. For now, if the function variable 
- * ends with a number, like "void Sensor(in long input2);" there will be two
- * portnames created.
+ * This file is automatically parsed by the rurbuilder backends for the omniidl compiler. The names of the functions
+ * will become port identifiers. The names of the function variables are not used. 
+ *
+ * The syntax of the IDL file also allows for "inout", but not all middlewares will accept this yet.
  */
 
-#pragma author Anne C. van Rossum
-#pragma copyright Distributed Organisms B.V.
-#pragma date Mar. 27, 2013
-#pragma license LGPLv3
+#pragma author               Homer J. Simpson
+#pragma copyright            Springfield Power Company
+#pragma date                 okt 22, 2013
+#pragma license              State
 
 // Recommended namespace "rur"
 module rur {
 
-// The command-line parameters
+// The command-line parameter (this struct is required)
 struct Param {
-  // multiple modules can be addressed in parallel, killed, etc. using "module_id"
-  string module_id;
+	// multiple modules can be addressed in parallel, killed, etc. using "module_id"
+	string module_id;
 };
 
-// This is the WriteModule interface, just outputs values
+// The public interface of WriteModule
 interface WriteModule {
 
 	// Output is one value each time
 	void Output(out long output);
 
 };
-
 
 };
