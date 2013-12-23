@@ -1,0 +1,23 @@
+{
+	"name":"ReadModule",
+	"type":"background",
+	"version":"1",
+	"category":"general",
+	"description":"Performs amazing functions",
+	"long_description":"Performs amazing functions",
+	"supported_middleware":[ "yarp", "zeromq", "ros" ],
+	"supported_devices":[ "raspberrypi", "ubuntu" ],
+	"enable":"false",
+	"android": {
+		"package":"org.dobots.readmodule",
+		"url":"https://play.google.com/store/apps/details?id=org.dobots.readmodule"
+	},
+	"ports": [
+		{
+			"name":"input",
+			"dir":"in",
+			"type":"int",
+			"middleware":"default"
+		}
+	]
+}

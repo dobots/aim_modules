@@ -1,0 +1,23 @@
+{
+	"name":"WriteModule",
+	"type":"background",
+	"version":"1",
+	"category":"general",
+	"description":"Performs amazing functions",
+	"long_description":"Performs amazing functions",
+	"supported_middleware":[ "yarp", "zeromq", "ros" ],
+	"supported_devices":[ "raspberrypi", "ubuntu" ],
+	"enable":"false",
+	"android": {
+		"package":"org.dobots.writemodule",
+		"url":"https://play.google.com/store/apps/details?id=org.dobots.writemodule"
+	},
+	"ports": [
+		{
+			"name":"output",
+			"dir":"out",
+			"type":"int",
+			"middleware":"default"
+		}
+	]
+}

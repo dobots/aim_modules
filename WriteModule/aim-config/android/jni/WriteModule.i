@@ -16,13 +16,17 @@ ndk-build clean && ndk-build -j
 /* Need to instantiate different types of vector */
 namespace std {
 	%template(vector_int) vector<int>;
+	%template(vector_long) vector<long>;
 	%template(vector_float) vector<float>;
+	%template(vector_double) vector<double>;
 };
 
-/* Declerations */
+/* Declarations */
 %{
-#include "WriteModuleExt.h"
+#include "../../../aim-core/inc/WriteModule.h"
+#include "../../../inc/WriteModuleExt.h"
 %}
 
 /* What to export */
-%include "WriteModuleExt.h"
+%include "../../../aim-core/inc/WriteModule.h"
+%include "../../../inc/WriteModuleExt.h"
